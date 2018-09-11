@@ -1,0 +1,16 @@
+[
+  "library/test_create_excel.py::TestExcelModule::()::test_simple_module_has_correct_output[test_input0-Successfully called simple module]", 
+  "library/test_create_excel.py::TestExcelModule::()::test_simple_module_has_correct_output[test_input1-Successfully called simple module]", 
+  "library/test_create_excel.py::TestExcelModule::()::test_simple_module_has_correct_output[test_input2-Successfully called simple module]", 
+  "library/test_create_excel.py::TestExcelModule::()::test_create_excel_has_correct_output[test_input0-Successfully copied excel data]", 
+  "library/test_create_excel.py::TestExcelModule::()::test_create_excel_has_correct_output[test_input1-File already exists and correct. Do nothing]", 
+  "library/test_create_excel.py::TestExcelModule::()::test_create_excel_has_correct_output[test_input2-Successfully copied excel data]", 
+  "library/test_create_excel.py::TestExcelModule::()::test_create_excel_has_correct_output[test_input3-Successfully copied excel data]", 
+  "library/test_create_excel.py::TestExcelModule::()::test_create_excel_has_correct_output[test_input4-File cannot be open]", 
+  "library/test_create_excel.py::test_module_has_correct_output[test_input0-Successfully called simple module]", 
+  "library/test_create_excel.py::test_module_has_correct_output[test_input1-Successfully called simple module]", 
+  "library/test_create_excel.py::test_module_has_correct_output[test_input2-Successfully called simple module]", 
+  "library/test_create_excel.py::TestExcelModuleWithUnittest::test_module_fails_when_required_args_missing", 
+  "library/test_create_excel.py::TestExcelModuleWithUnittest::test_module_has_correct_output", 
+  "library/test_create_excel.py::test_styles_are_equal_function"
+]

@@ -1,0 +1,5 @@
+{
+  "library/test_create_excel.py::TestExcelModule::()::test_module_fails_when_required_args_missing": true, 
+  "library/test_create_excel.py::TestExcelModule::test_module_has_correct_output": true, 
+  "tests/test_create_excel.py": true
+}

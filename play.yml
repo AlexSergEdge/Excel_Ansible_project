@@ -1,0 +1,22 @@
+---
+
+#
+# Tags (use command ansible-playbook play.yml <-t tag> -i inventories/inventory):
+# "pytest" - performs pytest module tests
+# "input_test" - performs 2 input playbook tests to verify if input file exists
+# "excel_creation" - call tasks that use create_excel and check_excel modules
+# "simple_test" - perform playbook test that uses Python script to test output of module
+#
+# To run pytest module tests separately use command:
+# pytest --capture=no  library/ 
+# 
+# All input data for playbook is set in roles/excel/vars folder
+# Data for pytest and pytest tests themself are in library/test_create_excel.py
+# All modules are in library folder
+# Test scripts are in roles/excel/files folder
+# All tasks are in roles/excel/tasks folder
+#
+
+- hosts: localhost
+  roles:
+    - role: excel

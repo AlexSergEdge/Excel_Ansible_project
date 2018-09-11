@@ -1,0 +1,98 @@
+---
+
+# Example of using script for testing if file exists
+
+- name: Run tests
+  command: pytest --capture=no  library/
+  register: pytest_output
+  become: True
+  tags: pytest 
+
+- name: Print pytest output
+  debug:
+    msg: "{{ pytest_output }}"
+  tags: pytest
+
+
+- script: test_file_exists.py "{{ input_excel_uri }}"
+  register: cmd_result
+  tags: input_test
+  
+- assert:
+    that:
+      - "'File does not exist' not in cmd_result.stderr"
+      - "'File exists' in cmd_result.stdout"
+  tags: input_test
+  
+# Alternative way of testing if file exists
+
+- stat:
+    path: "{{ input_excel_uri }}" 
+  register: file_check_result
+  tags: input_test
+
+- assert:
+    that:
+      - file_check_result.stat.exists
+  tags: input_test
+
+# Calling modules
+
+- name: Create Exel Table
+  create_excel:
+    header_data: "{{ header_row }}"
+    function_name: "{{ method_name }}"
+    table_data: "{{ data_rows }}"
+    input_excel: "{{ input_excel_uri }}"
+    output_excel1: "{{ output_excel_uri1 }}"
+    output_excel2: "{{ output_excel_uri2 }}" #
+  register: result
+  become: True
+  tags: excel_creation
+  
+- name: Print result
+  debug:
+    msg: "{{ result }}"
+     
+- name: Check Excel Table
+  check_excel:
+    header_data: "{{ header_row }}"
+    function_name: "{{ method_name }}"
+    table_data: "{{ data_rows }}"
+    input_excel: "{{ input_excel_uri }}"
+    output_excel1: "{{ output_excel_uri1 }}"
+    output_excel2: "{{ output_excel_uri2 }}"
+  register: check_result
+  become: True
+  tags: excel_creation
+  
+- name: Print check result
+  debug:
+    msg: "{{ check_result }}"
+  tags: excel_creation
+    
+# Running simple module
+    
+- name: Run simple module
+  simple_module:
+    name: Alexander
+    secret: secret
+  register: simple_result
+  tags: simple_test
+  
+- name: Print simple result
+  debug:
+    msg: "{{ simple_result }}"
+  tags: simple_test
+
+# Testing output data of simple module
+    
+- script: test_output.py "{{ simple_result }}"
+  register: simple_test_result
+  tags: simple_test
+  
+- name: Print simple test result
+  debug:
+    msg: "{{ simple_test_result }}"
+  tags: simple_test
+  
