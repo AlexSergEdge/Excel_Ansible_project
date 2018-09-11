@@ -2,3 +2,5 @@
 .ansible-test/*
 .pytest_cache/*
 library/.pytest_cache/*
+# Playbook retry file
+play.retry
