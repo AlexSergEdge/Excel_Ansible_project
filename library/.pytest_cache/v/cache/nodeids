@@ -1,4 +1,0 @@
-[
-  "test_create_excel.py::TestExcelModule::test_module_has_correct_output", 
-  "test_create_excel.py::test_styles_are_equal_function"
-]

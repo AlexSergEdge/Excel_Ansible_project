@@ -1,0 +1,4 @@
+# Test output files
+.ansible-test/*
+.pytest_cache/*
+library/.pytest_cache/*
